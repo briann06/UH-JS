@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cek Bilangan Ganjil/Genap</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Cek Bilangan Ganjil/Genap</h2>
+
+    <form id="numberForm">
+        <label for="number">Masukkan Angka:</label>
+        <input type="number" id="number" name="number" required>
+
+        <button type="button" onclick="checkOddEven()">Cek</button>
+    </form>
+
+    <p id="result"></p>
+
+    <script>
+        function checkOddEven() {
+            // Dapatkan nilai angka dari formulir
+            var number = document.getElementById("number").value;
+
+            // Ubah nilai angka menjadi tipe data integer
+            number = parseInt(number);
+
+            // Lakukan pengecekan kondisi
+            var result;
+            if (isNaN(number)) {
+                result = "Masukkan angka yang valid!";
+            } else {
+                result = (number % 2 === 0) ? "Bilangan Genap" : "Bilangan Ganjil";
+            }
+
+            // Tampilkan hasil
+            document.getElementById("result").innerHTML = result;
+        }
+    </script>
+
+</body>
+</html>

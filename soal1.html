@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Cek kepribadian berdasarkan golongan darah</h2>
+
+<p>Masukan golongan darahmu (A, B, AB, O):</p>
+
+<input id="bloodType" type="text">
+
+<button onclick="checkPersonality()">Submit</button>
+
+<p id="result"></p>
+
+<script>
+function checkPersonality() {
+  var bloodType = document.getElementById("bloodType").value.toUpperCase();
+  var result;
+  switch(bloodType) {
+    case 'A':
+      result = 'identik dengan sifatnya yang terorganisir, kritis, tenang dalam menghadapi masalah.';
+      break;
+    case 'B':
+      result = 'semangat yang tinggi, aktif, kreatif, dan selalu ingin tahu';
+      break;
+    case 'AB':
+      result = 'memiliki karakter yang kritis, rasional, bertanggung jawab, suka menolong, dan mudah beradaptasi';
+      break;
+    case 'O':
+      result = 'sikapnya yang mudah beradaptasi dengan lingkungan baru atau easy-going';
+      break;
+    default:
+      result = 'Masukan golongan darah yang valid (A, B, AB, O).';
+  }
+  document.getElementById("result").innerHTML = result;
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menghitung Keliling Trapesium</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Menghitung Keliling Trapesium</h2>
+
+    <form id="trapezoidForm">
+        <label for="sideA">Panjang Sisi a:</label>
+        <input type="number" id="sideA" name="sideA" required>
+
+        <label for="sideB">Panjang Sisi b:</label>
+        <input type="number" id="sideB" name="sideB" required>
+
+        <label for="sideC">Panjang Sisi c:</label>
+        <input type="number" id="sideC" name="sideC" required>
+
+        <label for="sideD">Panjang Sisi d:</label>
+        <input type="number" id="sideD" name="sideD" required>
+
+        <button type="button" onclick="calculatePerimeter()">Hitung Keliling</button>
+    </form>
+
+    <p id="result"></p>
+
+    <script>
+        function calculatePerimeter() {
+            // Dapatkan nilai panjang sisi dari formulir
+            var sideA = parseFloat(document.getElementById("sideA").value);
+            var sideB = parseFloat(document.getElementById("sideB").value);
+            var sideC = parseFloat(document.getElementById("sideC").value);
+            var sideD = parseFloat(document.getElementById("sideD").value);
+
+            // Lakukan pengecekan apakah input valid (nilai harus bilangan positif)
+            if (isNaN(sideA) || isNaN(sideB) || isNaN(sideC) || isNaN(sideD) || sideA <= 0 || sideB <= 0 || sideC <= 0 || sideD <= 0) {
+                document.getElementById("result").innerHTML = "Masukkan panjang sisi yang valid!";
+            } else {
+                // Hitung keliling
+                var perimeter = sideA + sideB + sideC + sideD;
+
+                // Tampilkan hasil
+                document.getElementById("result").innerHTML = "Keliling Trapesium: " + perimeter;
+            }
+        }
+    </script>
+
+</body>
+</html>

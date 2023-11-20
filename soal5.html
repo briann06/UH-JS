@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Program Kasir</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Program Kasir</h2>
+
+    <form id="cashierForm">
+        <label for="productCode">Kode Barang:</label>
+        <input type="text" id="productCode" name="productCode" required>
+
+        <label for="productName">Nama Barang:</label>
+        <input type="text" id="productName" name="productName" required>
+
+        <label for="productPrice">Harga Barang:</label>
+        <input type="number" id="productPrice" name="productPrice" required>
+
+        <label for="quantity">Jumlah Barang:</label>
+        <input type="number" id="quantity" name="quantity" required>
+
+        <button type="button" onclick="calculateTotal()">Hitung Total</button>
+    </form>
+
+    <h3>Informasi Barang</h3>
+    <p id="productInfo"></p>
+
+    <script>
+        function calculateTotal() {
+            // Dapatkan nilai input dari formulir
+            var productCode = document.getElementById("productCode").value;
+            var productName = document.getElementById("productName").value;
+            var productPrice = parseFloat(document.getElementById("productPrice").value);
+            var quantity = parseInt(document.getElementById("quantity").value);
+
+            // Lakukan pengecekan apakah input valid
+            if (productCode.trim() === "" || productName.trim() === "" || isNaN(productPrice) || isNaN(quantity) || productPrice <= 0 || quantity <= 0) {
+                alert("Masukkan informasi barang dengan benar!");
+                return;
+            }
+
+            // Hitung total harga
+            var total = productPrice * quantity;
+
+            // Tampilkan informasi barang
+            var productInfo = "Kode Barang: " + productCode + "<br>" +
+                              "Nama Barang: " + productName + "<br>" +
+                              "Harga Barang: " + productPrice + "<br>" +
+                              "Jumlah Barang: " + quantity + "<br>" +
+                              "Total Harga: " + total;
+
+            // Tampilkan informasi di halaman
+            document.getElementById("productInfo").innerHTML = productInfo;
+        }
+    </script>
+
+</body>
+</html>
